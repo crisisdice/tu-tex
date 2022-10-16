@@ -1,0 +1,55 @@
+\begin{titlepage}
+% !! Basiert auf DIN A4 mit dem Font "Computer Modern" bei 11pt !!
+\centering \singlespacing
+
+% Titelseitenkopf
+\begin{minipage}{\textwidth}
+  % Logo links
+	\begin{minipage}{0.4\textwidth}
+		\centering
+		\includegraphics[width=1.47in]{Bilder/tu-logo.eps} 
+	\end{minipage}
+	\hfill
+	% Fakultät und Institut rechts
+	\begin{minipage}{0.45\textwidth}
+		\Large \Fakultaet \vspace{1.5mm}  \\ \Institut
+	\end{minipage}
+\end{minipage}
+
+% Zwischenraum
+\vspace{3cm}
+
+% Haupt- und Untertitel 
+{\Huge \Titel}\\[7mm]
+\begin{minipage}{11cm}
+\centering \Large   \flqq  \Untertitel \frqq
+\end{minipage}\\
+
+% Zwischenraum
+\vspace{2.5cm}
+
+% Gruppen- bzw. Autorenangabe
+{\small \Gruppe}\\[0.2cm]
+\begin{tabular}{rcl}
+\Autor  & \AutorMatrikelNr & Di 8-10 MA 549\\
+\ifdefempty{\AutorB}{}{\AutorB & \AutorBMatrikelNr & Di 8-10 MA 549\\} 
+\ifdefempty{\AutorC}{}{\AutorC & \AutorCMatrikelNr & Di 14-16 MA 649\\} 
+\ifdefempty{\AutorD}{}{\AutorD & \AutorDMatrikelNr & \\} 
+\ifdefempty{\AutorE}{}{\AutorE & \AutorEMatrikelNr & \\} 
+\end{tabular}
+
+% Zwischenraum
+%\vspace{2cm}
+
+% Zwischenraum
+\vfill
+
+% Footer erstellen
+\Uni, \Fakultaet{} -- \Institut, \\ 
+\vspace{1cm}
+\Datum
+
+\end{titlepage}
+
+% Bei Hausaufgaben sollte das Deckblatt nicht in die Seitennummerierung einfließen
+\displayedpagenumbering{arabic}{1}

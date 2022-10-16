@@ -1,0 +1,21 @@
+% Sichert die Copy&Paste-Fähigkeit
+\usepackage{cmap}
+
+% Korrekte Darstellung europäischer Zeichen wie Umlaute
+\usepackage[T1]{fontenc}
+% Beispiel: Ohne dieses Paket wäre ein ä eine Kombination von: a + . + . = drei Zeichen -> schlecht für Copy & Paste aus der PDF und für die Suche
+
+% Einstellung des Eingabezeichensatz
+%\usepackage[latin1]{inputenc}
+%\usepackage[utf8]{inputenc}
+% Gewählt: UTF-8-Zeichensatz (für Windows: ansi nehmen)
+
+% Translation verschiedener Elemente des Dokumentes
+%\usepackage[ngerman]{babel}
+% Z. B. die korrekte Übersetzung von Verzeichnisnamen. Mehrere Namen als Option sind möglich. Die zuletzt geladene Sprache ist standard, sollte ngerman (Deutsch mit Reformanpassung) sein.
+
+
+% Ermöglicht Silbentrennung von zusammengesetzten Wörtern
+\usepackage[shortcuts]{extdash}
+% Z. B.: \hyphenation{Berta} \hyphenation{Ra-ke-te} Berta\-/Rakete
+% Siehe Datei Silbentrennung

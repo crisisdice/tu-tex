@@ -1,0 +1,23 @@
+% Dokumenteneinstellungen werden hier vorgenommen. Tiefere Layout-Einstellungen folgen separat.
+
+% Hier u. a. auch möglich: 
+% Spaltenanzahl (onecolumn, twocolumn)
+% Kapitel nur auf rechten Seiten beginnen oder auf jeder (openright, openany)
+% Beginn von Absätzen (parindent, halfparskip, parskip)
+
+\documentclass[
+headings=big,  						% Überschriftengröße (möglich: small, normal und big)
+captions=tableheading,				% Tabellen-Captions als Überschriften formatieren
+bibliography=totoc,					% Fügt das Literaturverzeichnis im Inhaltsverzeichnis hinzu
+listof=totoc,						% Fügt die weiteren Verzeichnisse im Inhaltsverzeichnis hinzu
+index=totoc,						% Fügt auch den Index im Inhaltsverzeichnis hinzu				
+draft=false							% Graphiken werden gesetzt. bei draft=true sind Graphiken nur als Rahmendummies verfügbar
+]{scrartcl} 					  	% Wählen aus scrartcl, scrreprt und scrbook !!! Unten unbedingt den Schalter anpassen !!!
+
+% Logische Schalter für Dokumentenklasse 
+\def\typeScrartcl{1}  % Für scrartcl
+\def\typeScrreprt{2}  % Für scrreprt
+\def\typeScrbook{3}   % Für scrbook
+
+% !! Schalter hier setzen, damit die Vorlage korrekt funktioniert !!
+\let\doctype=\typeScrartcl

@@ -1,0 +1,60 @@
+% Ermöglicht die Erweiterung von pdf-Dateien mit Links und Ähnlichem.
+\usepackage{hyperref}
+% Wenn Linkstellen im Text farbig sein sollen oder gar Formeln gesetzt werden, \texorpdfstring nutzen
+% Mit \hypersetup werden die Schalter dieses Pakets weiter modifiziert
+
+% Dokumenttitel setzen
+\hypersetup{pdftitle={\Titel}}
+
+% Autor setzen
+\hypersetup{pdfauthor={\Autor}}
+
+% Thema setzen
+\hypersetup{pdfsubject={\Untertitel}}
+
+% Einstellung der Linkfarben (Drucken oder reine PDF-Ansicht)
+\ifcase\pdftype 
+\or % Für Drucken
+\hypersetup{
+    colorlinks=true,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    menucolor=black,
+    urlcolor=black
+}
+\or % Für reine PDF-Verwendung
+\hypersetup{
+   colorlinks=true,
+   linkcolor=blue,
+	 anchorcolor=black,
+   citecolor=blue,
+   filecolor=magenta,
+   menucolor=blue,
+   urlcolor=blue
+}
+\fi
+
+% Einstellung, was das Inhaltsverzeichnis als Link verwenden soll
+\ifcase\pdftype 
+\or % Für Drucken
+\hypersetup{linktoc=all}
+\or % Für reine PDF-Verwendung
+\hypersetup{linktoc=page}
+\fi
+
+% Einstellen der Bookmarks
+\hypersetup{
+bookmarksopen=true,
+bookmarksnumbered=true
+}
+
+% Setzt Links korrekt für Floats (Fixt, das Labels nicht mehr am Ende stehen müssen)
+\usepackage[all]{hypcap}
+
+% Schönere URL-Formatierung (Für BibTeX und Text) von http://www.kronto.org/thesis/tips/url-formatting.html
+\makeatletter
+\def\url@leostyle{\@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+% Manuelles Hinzufügen einer URL mit \url{www.narf.com}

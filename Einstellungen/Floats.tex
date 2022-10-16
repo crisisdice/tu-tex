@@ -1,0 +1,31 @@
+% Neudefinition der Tabellen- und Abbildungsunterschriften
+\addto\captionsngerman{
+% Abb. statt Abbildung in Bildunterschriften
+\renewcommand{\figurename}{Abb.}
+% Tab. statt Tabelle
+\renewcommand{\tablename}{Tab.}
+}
+% Ändern des Abstandes zwischen den Abkürzungen Abb. bzw. Tab. und der jeweiligen Nummer von ~ auf \,
+\renewcommand*{\figureformat}{\figurename\,\thefigure\autodot}
+\renewcommand*{\tableformat}{\tablename\,\thetable\autodot}
+
+% Kein Einzug ab der zweiten Caption-Zeile
+\setcapindent{0em}
+
+% Abkürzungen Abb. und  Tab. mit Nummer in den Floats fett setzen
+\setkomafont{captionlabel}{\bfseries}
+
+% Bild- und Tabellenunterschriften verkleinern
+\addtokomafont{caption}{\small}
+
+% Vorschlag für besseres Float-Placement von http://mintaka.sdsu.edu/GF/bibliog/latex/floats.html
+\renewcommand{\topfraction}{0.9}				% Max. Anteil von Floats oben
+\renewcommand{\bottomfraction}{0.8}				% Max. Anteil von Floats unten
+\setcounter{topnumber}{2}						% Zwei Floats oben möglich
+\setcounter{bottomnumber}{2}					% Zwei Floats unten möglich
+\setcounter{totalnumber}{4}     				% Max. Anzahl Flaots auf einer Seite
+\setcounter{dbltopnumber}{2}    				% Wie topnumber für zwei Spalten
+\renewcommand{\dbltopfraction}{0.9}				% Wie topfraction für zwei Spalten
+\renewcommand{\textfraction}{0.07}				% Min. text mit Floats
+\renewcommand{\floatpagefraction}{0.7}			% Floatanteil, ab dem es Extraseiten gibt
+\renewcommand{\dblfloatpagefraction}{0.7}		% Analog zu floatpagefraction für zwei Spalten

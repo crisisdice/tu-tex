@@ -1,0 +1,53 @@
+%%                                                              %%
+%% Diese Hausaufgabenvorlage ist eine vereinfachte Version der  %%
+%% Vorlage für wissenschaftliche Arbeiten, die auch Listings,   %%
+%% Glossare, u. v. m. unterstützt.                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Dokumentklasse mit Basiseinstellungen
+\input{Einstellungen/Klasse}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{selinput} 
+\SelectInputMappings{ 
+adieresis={ä}, 
+germandbls={ß}, 
+}
+% Projektdefinitionen
+\input{Einstellungen/Projekteinstellungen}
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+% BEI JEDER HAUSAUFGABE ANZUPASSEN!
+% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+% Paket-Definitionen und deren Einstellungen
+\input{Einstellungen/Einstellungen}
+
+% Eigene Kommandos
+\input{Einstellungen/Kommandos}
+
+% Silbentrennung
+\input{Einstellungen/Silbentrennung}
+
+\begin{document}
+
+% Titelseite einbinden
+\input{Titelseite/Titelseite}
+
+\input{Inhalt/Aufgabe1.tex}
+\setcounter{subsubsection}{0}
+\input{Inhalt/Aufgabe2.tex}
+\setcounter{subsubsection}{0}
+\input{Inhalt/Aufgabe3.tex}
+\setcounter{subsubsection}{0}
+\input{Inhalt/Aufgabe4.tex}
+
+
+
+
+%\bibliography{Bibliographie/Bibliographie}
+
+\end{document}
+
+
+

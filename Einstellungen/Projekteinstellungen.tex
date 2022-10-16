@@ -1,0 +1,68 @@
+% Titelei
+\newcommand*{\Titel}{Hausaufgabe 1}
+\newcommand*{\Untertitel}{Computerorientierte Mathematik I}
+% Header-Titel
+\newcommand*{\HeaderTitel}{Hausaufgabe 1}
+
+% Hauptautor
+\newcommand*{\Autor}{Markus Norden}
+\newcommand*{\AutorMatrikelNr}{347517}
+
+% Manuell gesetztes Datum mit Ort
+\newcommand*{\Datum}{Berlin, 1. November 2017}
+
+% Uni, Fakultät, Institut und Fachgebiet
+\newcommand*{\Uni}{Technische Universität Berlin}
+\newcommand*{\Fakultaet}{Fakultät II}
+\newcommand*{\Institut}{Institut für Mathematik}
+\newcommand*{\Fachgebiet}{}
+
+% Professor und Betreuer
+\newcommand*{\Professor}{Prof. Dr. rer. nat. habil. W. H. Müller}
+\newcommand*{\BetreuerA}{Dipl.-Ing. Irgend Jemand}
+\newcommand*{\BetreuerB}{}
+
+% Weitere Autoren 
+\newcommand*{\AutorB}{Marvin Randig}
+\newcommand*{\AutorBMatrikelNr}{Schülerstudium}
+\newcommand*{\AutorC}{Alexander Joseph Daily}
+\newcommand*{\AutorCMatrikelNr}{390532}
+\newcommand*{\AutorD}{}
+\newcommand*{\AutorDMatrikelNr}{}
+\newcommand*{\AutorE}{}
+\newcommand*{\AutorEMatrikelNr}{}
+
+% Gruppenangabe oder nur "vorgelegt von:" schreiben.
+\newcommand*{\Gruppe}{Gruppe:}
+
+% Einstellen der Druckversion: Drucken oder PDF-Ansicht allein
+\def\typeDrucken{1}  % Für Drucken (nicht ändern)
+\def\typePDFonly{2}  % Für reine PDF-Verwendung (nicht ändern)
+% Hier den passenden Schalter setzen! =\typeDrucken oder =\typePDFonly
+\let\pdftype=\typeDrucken
+
+% Definition, ob ein- oder zweiseitig gesetzt werden soll
+\def\typeOnepage{1}  % Für einseigen Satz (nicht ändern)
+\def\typeTwopage{2}  % Für zweiseitgen Satz (nicht ändern)
+% Hier den passenden Schalter setzen! =\typeOnepage oder =\typeTwopage
+\let\pagetype=\typeTwopage
+
+% Bindekorrektur am inneren Rand
+% Wenn nicht geheftet oder gebunden wird, sonder nur z. B. getackert, dann
+% kann auf Bindekorrektur verzichtet werden
+\newlength{\bindCorrection} 				% Deklaration, nicht ändern
+\setlength{\bindCorrection}{1cm} 			% Zuweisung, kann geändert werden
+
+% Footer verwenden?
+\def\typeUseFooter{1}  		% Footer verwenden (nicht ändern)
+\def\typeDoNotUseFooter{2}	% Footer nicht verwenden (nicht ändern)
+\let\footertype=\typeDoNotUseFooter
+
+% Normgerechte Seitenrandabstände?
+\def\typeUseNormSpacings{1}  	% A4-Buchsatz-Norm
+\def\typeUseSmallSpacings{2}	% Platz sparen (ignoriert auch Bindekorrektur)
+% Hier den passenden Schalter setzen! =\typeUseNormSpacings oder =\typeUseSmallSpacings
+\let\spacingtype=\typeUseNormSpacings
+
+% PDF-Ausgabe-Version über Minor-Nummer => 1.x
+\pdfminorversion=5

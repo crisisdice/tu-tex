@@ -1,0 +1,92 @@
+% Hier sind Layoutoptionen zu finden, die aus Übersichtsgründen nicht in der Datei "Klasse.tex" eingefügt sind
+
+% Serifenschrift 
+% Ersetzt Computer Modern mit Latin Modern, sieht aber nahezu gleich aus. Grund ist die mangelnde Unterstützung von korrekt gesetzten Umlauten und die Lesbarkeit am Monitor.
+\usepackage{lmodern}
+
+% Fügt Symbole zum Font hinzu, die in Latin Modern nicht enthalten sind, wie z. B. das Euro-Symbol
+\usepackage{textcomp}
+
+% Ersetzt die Schreibmaschinen-Schrift und verwendet Adobe Courier statt Latin Modern oder Computer Modern
+\usepackage{courier}
+
+% Optischer Randausgleich
+\usepackage{microtype}
+% Wenn man die Augen zukneift, kann man ohne diesem Paket bei Blocksatz auf der rechten Seite "Dellen" erkennen, da Punkte und Striche vor der virtuellen Trennlinie gehalten werden. Dieses Paket ermöglicht kleine Übertretungen, die das optische Bild verbessern.
+
+% Setzt die Schriftgröße. Ebenfalls soll die Titelseite separat gesetzt werden
+\KOMAoptions{
+fontsize=11pt,			% Schriftgröße. Standard = 11pt
+titlepage=true			% Separat gesetzte Titelseite verwenden
+}
+
+%\geometry{left=1.6cm,top=2cm,bottom=5cm,right=1.8cm}
+%\def\typeUseNormSpacings{1}  	% A4-Buchsatz-Norm
+%\def\typeUseSmallSpacings{2}	% Platz sparen
+%\let\spacingtype=\typeUseSmallSpacings
+
+% Verwendung des geometry Packets für die Einstellung des Papierformats / Seitenabstände / Bindekorrektur
+\usepackage[
+\ifcase\spacingtype 
+\or a4paper, bindingoffset=\bindCorrection 					% A4-Normeinstellung mit Bindekorrektur
+\or left=2cm,top=2cm,bottom=2cm,right=2cm 				% A4 platzsparend
+\fi ,						
+\ifcase\pagetype \or twoside=false \or twoside=true \fi  	% Ein- oder zweiseitig 					
+]{geometry}
+
+% Header und Footer für ein- oder zweiseitigen Satz über das Paket scrpage2 einstellen
+\usepackage[automark, headsepline, plainheadsepline, ilines,
+\ifcase\footertype \or headsepline, plainheadsepline \or  \fi ]{scrpage2}
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ifcase\pagetype
+\or % Für einseitigen Satz
+	\lohead[\HeaderTitel]{\HeaderTitel}
+	\rohead[\pagemark]{\pagemark}	
+	\ifcase\footertype 
+	\or 	
+		\lofoot[{\scriptsize \leftmark}]{
+		\ifthenelse{\equal{\leftmark}{\rightmark}}
+			{\scriptsize \rightmark}
+			{ \ifthenelse{\equal{\rightmark}{}}
+				{\scriptsize {\leftmark}}
+				{\scriptsize {\leftmark} -- {\rightmark}}
+			}
+		}	
+	 \or  \fi	
+\or % Für zweiseitigen Satz
+	\ohead[\pagemark]{\pagemark}
+	\lohead[\HeaderTitel]{\HeaderTitel}
+	\ifcase\footertype 
+	\or
+		\refoot[{\scriptsize {\leftmark}}]{{\scriptsize {\leftmark}}}
+		\lofoot[{\scriptsize {\rightmark}}]{{\scriptsize {\rightmark}}}
+	\or  \fi
+\fi
+
+% Je nach gewählter Klasse das left- und rightmark anpassen
+\ifcase\doctype 
+\or % Für scrartcl
+\addtokomafont{section}{\thispagestyle{scrplain}}
+\renewcommand{\sectionmark}[1]{\markright{}\markleft{Abschnitt\ \thesection.\ #1}{}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}{}}
+\or % Für scrreprt 
+\renewcommand{\chaptermark}[1]{\markright{}\markleft{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\or % Für scrbook
+\renewcommand{\chaptermark}[1]{\markright{}\markleft{\chaptername\ \thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{Abschnitt\ \thesection.\ #1}{}}
+\fi
+
+% Hilfsscript zur Anpassung der Seitenzahl, ohne dass der zweiseitige Druck unterbrochen wird, von
+% http://tex.stackexchange.com/questions/36011/how-to-change-the-page-number-from-even-to-odd-while-keeping-the-page-as-verso
+\makeatletter
+%usage: 
+%\displayedpagenumbering{numbering style}{number to display on current page}
+\newcommand{\displayedpagenumbering}[2]{%
+  \edef\@tempcntval{\@arabic{\value{page}}}
+  \long\@namedef{@#1withoffset}##1{\csname @#1\endcsname{\numexpr ##1 - \@tempcntval + #2\relax}}%
+  \pagenumbering{#1withoffset}%
+  \setcounter{page}{\@tempcntval}%
+}
+\makeatother

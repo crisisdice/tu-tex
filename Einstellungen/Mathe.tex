@@ -1,0 +1,100 @@
+% Wichtige Befehle zum schönen Mathesatz
+\usepackage{amsmath}
+% Umgebungsbeispiele: \equation, \align, \multline, \split, \boxed
+% Kontrollkommandos: \subequations, \displaybreak, \intertext, \left, \right, \text
+% Matrizen: matrix, pmatrix (), bmatrix [], Bmatrix {}, vmatrix ||, Vmatrix ||||
+% u. v. m.
+
+% Schriftarten zum Mathesatz
+\usepackage{amsfonts}
+% Z. B. \mathbb{R} für die reellen Zahlen
+
+% Riesige Liste von mathematischen Symbolen und Operatoren
+\usepackage{amssymb}
+% Z. B. \in, \leq, \geq, \not, \sim, \approx, ...
+
+% Weitere Symbole
+\usepackage{stmaryrd}
+% Z. B. \llbracket .. \rrbracket
+
+% Unterdrückt unlogische Warnungen von stmaryrd
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+
+% Für Theoreme
+\usepackage{amsthm}
+%\newtheorem{lemma}{Lemma} 
+%\begin{lemma}
+%...
+%\end{lemma}
+
+% Eine weitere Liste mit Symbolen, die häßlichere ablösen
+\usepackage{latexsym}
+% Z. B. \leadsto
+
+% Normgerechtes Setzen von Zahlen mit SI-Einheiten
+\usepackage[locale=DE]{siunitx}
+%% \sisetup{load-configurations=binary}
+% \unit[1]{kg} = \SI{1}{\kilo\gram} == \SI{1}{kg} -> $1\,\text{kg}$
+% \num{2.3d-2} -> $2,3 \cdot 10^{-2}$
+% Stellt ebenfalls neuen Spaltentyp für Zahlen in Tabellen bereit für Ausrichtung am Dezimalzeichen:
+% S[key=value, key=value, ...]
+% Möglich sind hier z. B.:
+% table-format = +3.2e+4 für 2 Vorkomma-, 4 Nachkomma- und 3 Exponentialstellen
+% table-number-alignment=center oder right (Wo soll das Komamzeichen ausgerichtet werden?)
+% table-figures-exponent=true oder false (Sollen die Exponenten auch ausgerichtet werden?)
+% Weiterer neuer Spaltentyp s[key=value, ...] für Einheiten
+% Wichtig hier: Kopfzeilen mit Text in {Text} versehen, bei mehreren Wörtern mit \multicolumn{1}{c}{Text} arbeiten. 
+
+% Ermöglicht das Durchstreichen von Termen
+\usepackage{cancel}
+% \cancel{4}
+
+% Verschiedene Möglichkeiten, Text zu unterstreichen. Wird in dieser Mathe-Datei eingefügt, da dieses Paket primär für Matrizen und Vektoren genutzt wird
+\usepackage[normalem]{ulem}
+% Z. B. für Vektoren \uline{v} oder für Matrizen \uuline{m}
+% Aber auch für Text: \uwave{wellig}, \sout{falsch}, \xout{entfernt}, \dashuline{- - - }, \dotuline{. . . }
+
+% Repariert die kaputte Kommasetzung für deutsche Kommazahlen im Mathemodus. Ursprünglich setzt Tex nach jedem Komma ein kleines Leerzeichen, aus 3,7 wird daher 3,\,7 = falsch.
+\usepackage{icomma}
+% Jetzt geht das Schreiben von 3,7 ohne Tricks. Ab jetzt nach Kommata mit -- gewünschten -- Abständen in Formeln ein Leerzeichen setzen, LaTex setzt dann ein kleines \,
+
+% Setzen von Einheiten
+\usepackage{units}
+% Ermöglicht \unit[Zahl]{Einheit} und \unitfrac[Zahl]{Zähler}{Nenner} sowie nur \nicefrac{a}{b}
+% Nicefrac setzen im Text statt a/b mit einem einfachen Slash die Terme abgesetzt.
+
+% Darstellung von gerade gesetzten griechischen Buchstaben
+\usepackage{upgreek}
+% Verwendung z. B. mit: \uppi für ein gerades \pi
+
+% Tensor-Notation / Indizes mit Abständen
+\usepackage{tensor}
+% Verwendung: M \indices{^a_b^{cd}_e}
+
+% Erweiterter Blackboard-font
+\usepackage{bbm}
+% Verwendung: \mathbbm{N} - geht auch mit \boldsymbol
+
+% Neue und überarbeitete Integralzeichen, ebenfalls bessere Abstände bei Mehrfachintegralen
+\usepackage{esint}
+% Verwendung: Z. B.: \oint
+
+% Wurzel abschließen
+\usepackage{letltxmacro}
+\makeatletter
+\let\oldr@@t\r@@t
+\def\r@@t#1#2{%
+\setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+\LetLtxMacro{\oldsqrt}{\sqrt}
+\renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2}}
+\makeatother
+
+% Gleichungsnummerierung
+\ifcase\doctype 
+\or \numberwithin{equation}{section}
+\or 
+\or  
+\fi  

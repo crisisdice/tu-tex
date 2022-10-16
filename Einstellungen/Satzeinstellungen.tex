@@ -1,0 +1,24 @@
+% Anpassen der Tiefe von nummerierten Überschriften. In wissenschaftlichen Dokumenten ist es üblich, bis zur dritten Ebene zu nummerieren. Da die Klassen verschiedene Hauptebenen (\chapter oder \section) haben, muss individuell angepasst werden!
+\ifcase\doctype 
+  \or \setcounter{secnumdepth}{3} % Für scrartcl
+  \or \setcounter{secnumdepth}{2} % Für scrartcl
+  \or \setcounter{secnumdepth}{2} % Für scrbook
+\fi
+
+% Vermeidung von Umbruchproblemen nach Axel Reichert
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom 
+
+% Falls bei Arbeiten Absätze durch Zeilenabstand und uneingerückte neue Zeilen erforderlich sind:
+\setlength{\parindent}{0pt}	 % kein Einzug bei neuem Absatz
+\setlength{\parskip}{1.5ex plus0.5ex minus 0.5ex} % Abstand zwischen 2 Absätzen 
+
+% Zeilenabstand einstellen
+\usepackage{setspace}
+\singlespacing % Ist i. d. R. auch standardmäßig aktiv
+% Alternativ für einige Arbeiten gefordert: \onehalfspacing oder \doublespacing

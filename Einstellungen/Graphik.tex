@@ -1,0 +1,14 @@
+% Einbinden von Vektor- und Rastergraphiken
+\usepackage[pdftex]{graphicx}
+% Beispiel einer Anwendung: 
+%\begin{figure}[!htb] % <<<---- Am besten hier positionieren, sonst oben oder unten auf der Seite
+%\centering   % <<<---- Zentrierte Darstellung
+%\includegraphics[width=1.00\textwidth]{beispiel.pdf}  % <<<---- Fügt auf ganze Seitenbreite das Bild "beispiel.pdf" ein
+%\caption{Beispielbild}  % <<<---- Bildunterschrift
+%\label{fig:marke}  % <<<---- Marke zum Referenzieren
+%\end{figure}
+
+% Ermöglicht die Verwendung von eps-Graphiken
+\usepackage{epstopdf}
+% Dieses Paket wandelt on-the-fly eps-Dateien in pdf-Dateien um, diese werden in dem Bilder-Ordner automatisch abgelegt!
+% Benötigt \write18 enabled, d. h. --shell-escape für tetex, texlive oder --enable-write18 für miktex
